@@ -4,9 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        'primary': '#8FBC8F', // Example: Soft green
-        'secondary': '#F5F5DC', // Example: Beige
-        'accent': '#A0522D' // Example: Brown
+        'primary': '#8FBC8F', // Soft green
+        'secondary': '#F5F5DC', // Beige
+        'accent': '#A0522D', // Brown
       },
       fontFamily: {
         'sans': ['Arial', 'Helvetica', 'sans-serif'],

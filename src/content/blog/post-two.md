@@ -1,22 +1,35 @@
 ---
-title: "Sustainable Farming Practices"
-description: "Learn about sustainable farming practices that promote healthy ecosystems."
-pubDate: "2024-06-25"
+title: "Sustainable Vegan Baking"
+description: "Tips and tricks for baking delicious vegan treats sustainably."
+pubDate: "2024-06-28"
 layout: "../../layouts/BlogPost.astro"
-tags: ["farming", "sustainable", "environment"]
+tags: ["baking", "vegan", "sustainable"]
 draft: false
 heroImage: "https://placehold.co/1000x400.png"
-heroImageAlt: "Sustainable Farm"
-dataAiHint: "sustainable farming"
+heroImageAlt: "Vegan baked goods"
+dataAiHint: "baked goods"
 ---
 
-Sustainable farming is essential for protecting our planet. By adopting eco-friendly practices, farmers can minimize their environmental impact.
+Baking vegan treats can be both delicious and sustainable. Here are some tips to reduce your environmental impact:
 
-<img src="https://placehold.co/800x400.png" alt="Sustainable Farm" data-ai-hint="sustainable farm" />
+*   Use locally sourced ingredients whenever possible.
+*   Choose organic and fair-trade products.
+*   Reduce waste by composting food scraps.
 
-**Key Practices:**
+<img src="https://placehold.co/600x300.png" alt="Vegan Brownies" data-ai-hint="vegan brownies"/>
 
-*   Crop rotation
-*   Cover cropping
-*   No-till farming
-*   Integrated pest management
+Try our recipe for sustainable vegan brownies:
+
+**Ingredients:**
+
+*   1 cup flour
+*   1/2 cup cocoa powder
+*   1 cup sugar
+*   1/2 cup vegan butter
+*   1/4 cup plant-based milk
+
+**Instructions:**
+
+1.  Combine dry ingredients.
+2.  Mix in wet ingredients.
+3.  Bake at 350°F for 25 minutes.

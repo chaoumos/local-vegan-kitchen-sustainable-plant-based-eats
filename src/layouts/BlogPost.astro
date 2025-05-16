@@ -1,24 +1,34 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import type { Props as AstroProps } from 'astro';
+import { format } from 'date-fns';
 
-interface Props extends AstroProps {
-  title: string;
-  description: string;
-  pubDate: string;
-  heroImage?: string;
-  heroImageAlt?: string;
+interface Props {
+  frontmatter: {
+    title: string;
+    description: string;
+    pubDate: string;
+    heroImage?: string;
+    heroImageAlt?: string;
+  };
 }
 
-const { title, description, pubDate, heroImage, heroImageAlt } = Astro.props as Props;
+const { frontmatter } = Astro.props;
+const { title, description, pubDate, heroImage, heroImageAlt } = frontmatter;
 ---
 
 <Layout title={title} description={description}>
-	<article class="prose lg:prose-xl mx-auto py-8">
-		<h1 class="text-3xl font-bold text-primary mb-4">{title}</h1>
-		<time datetime={pubDate} class="text-sm text-gray-500">Published on {new Date(pubDate).toLocaleDateString()}</time>
-		<p class="mt-2 text-gray-700">{description}</p>
-		{heroImage && <img src={heroImage} alt={heroImageAlt} class="rounded-lg shadow-md mt-4" />}
-		<slot />
-	</article>
+  <article class="prose lg:prose-xl mx-auto py-8">
+    <h1 class="text-3xl font-bold text-primary mb-4">{title}</h1>
+    <p class="text-sm text-gray-500">
+      Published on:
+      <time datetime={new Date(pubDate).toISOString()}>
+        {format(new Date(pubDate), 'MMMM d, yyyy')}
+      </time>
+    </p>
+    {heroImage && (
+      <img src={heroImage} alt={heroImageAlt} class="rounded-lg shadow-md mt-4" />
+    )}
+    <p class="mt-4">{description}</p>
+    <slot />
+  </article>
 </Layout>

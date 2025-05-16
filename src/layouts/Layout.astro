@@ -1,13 +1,11 @@
 ---
-import type { Props as AstroProps } from 'astro';
-import '../styles/global.css';
-
-interface Props extends AstroProps {
-  title?: string;
-  description?: string;
+import type { Props } from 'astro';
+interface Props {
+	title?: string;
+	description?: string;
 }
 
-const { title, description } = Astro.props as Props;
+const { title, description } = Astro.props;
 const siteTitle = "Local Vegan Kitchen: Sustainable Plant-Based Eats";
 ---
 
@@ -15,7 +13,7 @@ const siteTitle = "Local Vegan Kitchen: Sustainable Plant-Based Eats";
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content={description}>
 	<meta name="author" content={siteTitle}>
 	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -23,9 +21,11 @@ const siteTitle = "Local Vegan Kitchen: Sustainable Plant-Based Eats";
 	<title>{Astro.props.title || `${siteTitle}`}</title>
 </head>
 <body class="bg-secondary text-gray-800">
-  <div class="mx-auto max-w-3xl p-4">
-		<header class="flex items-center justify-between py-4">
-			<a href="/" class="text-2xl font-bold text-primary">{siteTitle}</a>
+	<div class="container mx-auto px-4 py-8 min-h-screen flex flex-col">
+		<header class="mb-8">
+			<h1 class="text-3xl font-bold mb-2">
+				<a href="/" class="text-primary hover:text-accent">{siteTitle}</a>
+			</h1>
 			<nav>
 				<ul class="flex space-x-4">
 					<li><a href="/" class="hover:text-primary">Home</a></li>
@@ -34,12 +34,12 @@ const siteTitle = "Local Vegan Kitchen: Sustainable Plant-Based Eats";
 				</ul>
 			</nav>
 		</header>
-		<main>
+		<main class="flex-grow">
 			<slot />
 		</main>
-		<footer class="py-4 text-center text-sm">
-			&copy; {new Date().getFullYear()} {siteTitle}
+		<footer class="mt-8 py-4 text-center border-t border-gray-300">
+			<p>© {new Date().getFullYear()} {siteTitle}</p>
 		</footer>
-  </div>
+	</div>
 </body>
 </html>
