@@ -1,0 +1,26 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { format } from 'date-fns';
+
+const posts = await Astro.glob('../../content/blog/**/*.md');
+
+---
+
+<Layout title="Blog" description="Latest articles and recipes from Local Vegan Kitchen.">
+	<main class="space-y-6">
+		<h1 class="text-3xl font-bold text-primary mb-4">Blog</h1>
+		<ul class="space-y-4">
+			{posts.map(post => (
+				<li class="shadow-md rounded-md p-4 bg-white">
+					<a href={post.url} class="text-xl font-semibold hover:text-primary">{post.frontmatter.title}</a>
+					<p class="text-sm text-muted-foreground">
+            <time datetime={new Date(post.frontmatter.pubDate).toISOString()}>
+              {format(new Date(post.frontmatter.pubDate), 'MMMM d, yyyy')}
+            </time>
+          </p>
+					<p class="text-gray-700">{post.frontmatter.description}</p>
+				</li>
+			))}
+		</ul>
+	</main>
+</Layout>

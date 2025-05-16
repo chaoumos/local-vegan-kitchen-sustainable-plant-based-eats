@@ -1,0 +1,45 @@
+---
+import type { Props as AstroProps } from 'astro';
+import '../styles/global.css';
+
+interface Props extends AstroProps {
+  title?: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props as Props;
+const siteTitle = "Local Vegan Kitchen: Sustainable Plant-Based Eats";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content={description}>
+	<meta name="author" content={siteTitle}>
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	<meta name="generator" content={Astro.generator} />
+	<title>{Astro.props.title || `${siteTitle}`}</title>
+</head>
+<body class="bg-secondary text-gray-800">
+  <div class="mx-auto max-w-3xl p-4">
+		<header class="flex items-center justify-between py-4">
+			<a href="/" class="text-2xl font-bold text-primary">{siteTitle}</a>
+			<nav>
+				<ul class="flex space-x-4">
+					<li><a href="/" class="hover:text-primary">Home</a></li>
+					<li><a href="/blog" class="hover:text-primary">Blog</a></li>
+					<li><a href="/about" class="hover:text-primary">About</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<slot />
+		</main>
+		<footer class="py-4 text-center text-sm">
+			&copy; {new Date().getFullYear()} {siteTitle}
+		</footer>
+  </div>
+</body>
+</html>
